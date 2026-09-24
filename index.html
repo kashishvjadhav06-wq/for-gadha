@@ -32,7 +32,26 @@
   .memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;width:100%;margin:10px 0}
   .memory{background:#fff;border:1px solid #f5ccd9;border-radius:14px;padding:22px 10px;font-family:Arial,sans-serif;font-size:13px;min-height:110px;display:grid;place-items:center}
   .footer-note{font:12px Arial,sans-serif;color:#a45c76;margin-top:20px}
-  .progress{position:fixed;top:0;left:0;height:4px;background:var(--deep);width:0;z-index:10;transition:.3s}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--deep);width:0;z-index:10;transition:.3s}timeline-photo {
+  display: block;
+  width: 85%;
+  max-width: 280px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 16px auto;
+  border: 2px solid #f8d9e3;
+  box-shadow: 0 6px 18px rgba(160, 70, 100, 0.12);
+}
+
+@media (max-width: 480px) {
+  .timeline-photo {
+    width: 90%;
+    max-width: 280px;
+    height: 200px;
+    border-radius: 12px;
+  }
+}
 </style>
 </head>
 <body>
