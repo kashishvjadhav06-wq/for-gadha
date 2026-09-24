@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For My Aruuu ♡</title>
+<style>
+  :root{--pink:#f7b8cb;--light:#fff7fa;--deep:#9d4264;--text:#542c3c}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Georgia,'Times New Roman',serif;background:linear-gradient(135deg,#fff8fb,#ffe8f0);color:var(--text);min-height:100vh;overflow-x:hidden}
+  .hearts span{position:fixed;bottom:-30px;font-size:20px;animation:float 9s linear infinite;opacity:.55;z-index:0}
+  .hearts span:nth-child(1){left:8%;animation-delay:0s}.hearts span:nth-child(2){left:28%;animation-delay:2s}.hearts span:nth-child(3){left:50%;animation-delay:4s}.hearts span:nth-child(4){left:75%;animation-delay:1s}.hearts span:nth-child(5){left:90%;animation-delay:5s}
+  @keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+  main{position:relative;z-index:1;max-width:850px;margin:auto;padding:28px 18px 60px}
+  .screen{display:none;text-align:center;min-height:85vh;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+  .screen.active{display:flex}
+  h1{font-size:clamp(2.3rem,8vw,5rem);margin:0;color:var(--deep);font-weight:normal}
+  h2{font-size:clamp(1.7rem,5vw,3rem);font-weight:normal;color:var(--deep)}
+  p{font-family:Arial,sans-serif;line-height:1.8;font-size:1rem}
+  .eyebrow{letter-spacing:4px;text-transform:uppercase;font:12px Arial,sans-serif;color:#a45c76}
+  button{border:0;background:var(--deep);color:white;border-radius:999px;padding:14px 26px;cursor:pointer;font:600 14px Arial,sans-serif;box-shadow:0 8px 20px #b35e7b30;transition:.2s}
+  button:hover{transform:translateY(-2px);background:#7e304e}
+  .secondary{background:white;color:var(--deep);border:1px solid var(--pink)}
+  .envelope-wrap{perspective:1000px;margin:15px}
+  .envelope{width:min(340px,82vw);height:220px;background:#f4b4c8;position:relative;border-radius:8px;box-shadow:0 20px 40px #a34d6c25;cursor:pointer}
+  .envelope:before{content:"";position:absolute;inset:0;border-style:solid;border-width:110px 170px 0;border-color:#e99bb5 transparent transparent;z-index:2}
+  .envelope:after{content:"";position:absolute;bottom:0;left:0;border-style:solid;border-width:0 170px 120px;border-color:transparent transparent #f8cbd8;z-index:1}
+  .seal{position:absolute;z-index:4;left:50%;top:48%;transform:translate(-50%,-50%);background:#fff0f5;color:#a03e62;border-radius:50%;width:58px;height:58px;display:grid;place-items:center;font-size:25px}
+  .letter{background:#fffdfb;padding:35px 28px;border-radius:10px;box-shadow:0 15px 40px #a34d6c18;text-align:left;max-width:650px;width:100%;border:1px solid #f7d8e2}
+  .letter p{font-family:Georgia,serif;font-size:1.08rem}
+  .signature{text-align:right;font-size:1.2rem;color:var(--deep);margin-top:28px}
+  .memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;width:100%;margin:10px 0}
+  .memory{background:#fff;border:1px solid #f5ccd9;border-radius:14px;padding:22px 10px;font-family:Arial,sans-serif;font-size:13px;min-height:110px;display:grid;place-items:center}
+  .footer-note{font:12px Arial,sans-serif;color:#a45c76;margin-top:20px}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--deep);width:0;z-index:10;transition:.3s}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="hearts"><span>♡</span><span>♡</span><span>♡</span><span>♡</span><span>♡</span></div>
+
+<main>
+  <section class="screen active" id="welcome">
+    <div class="eyebrow">A tiny website made with a very big heart</div>
+    <h1>For My Aruuu ♡</h1>
+    <p>Some feelings deserve more than a text message.<br>So I made you a little place on the internet.</p>
+    <button onclick="show('envelope')">Open your surprise →</button>
+    <div class="footer-note">Made especially for you, Aryan.</div>
+  </section>
+
+  <section class="screen" id="envelope">
+    <div class="eyebrow">You have one unopened letter</div>
+    <h2>For the boy who feels like home</h2>
+    <div class="envelope-wrap" onclick="show('letter')" aria-label="Open envelope">
+      <div class="envelope"><div class="seal">♡</div></div>
+    </div>
+    <p>Tap the envelope to open it.</p>
+    <button class="secondary" onclick="show('welcome')">Back</button>
+  </section>
+
+  <section class="screen" id="letter">
+    <div class="eyebrow">A letter for you</div>
+    <div class="letter">
+      <h2>Dear Aryan,</h2>
+      <p>Happy Boyfriend’s Day, my Aruuu. ♡</p>
+      <p>I don’t know if a website can ever explain everything you mean to me, but I wanted to create a small corner of the world that is just for us.</p>
+      <p>Thank you for being part of my ordinary days, my random thoughts, my smiles, and even the moments when words fail me. There are so many little things about you that I carry quietly in my heart.</p>
+      <p>Our story is not made only of perfect moments. It is made of memories, conversations, silly things, learning, growing, and choosing to care. And every memory with you has a place in my heart.</p>
+      <p>If I could give you one thing today, it would be the reminder that you are loved, appreciated, and special to me—not only on a particular day, but in the little moments too.</p>
+      <p>Here’s to our memories so far, and to all the beautiful moments still waiting for us.</p>
+      <p class="signature">Always a little yours,<br>Kashuu ♡</p>
+    </div>
+    <button onclick="show('memories')">Our little memories →</button>
+  </section>
+
+  <section class="screen" id="memories">
+    <div class="eyebrow">A few chapters of us</div>
+    <h2>Our little timeline ♡</h2>
+    <div class="memory-grid">
+      <div class="memory"><strong>15 April 2024</strong><br>Our beginning</div>
+      <div class="memory">The random laughs</div>
+      <div class="memory">The long conversations</div>
+      <div class="memory">The small surprises</div>
+      <div class="memory">The memories only we understand</div>
+      <div class="memory">Everything still ahead</div>
+    </div>
+    <p>Replace these cards with your real memories, dates, inside jokes, and photos.</p>
+    <button onclick="show('final')">One last thing →</button>
+  </section>
+
+  <section class="screen" id="final">
+    <div class="eyebrow">Before you go</div>
+    <h1>You are my favourite chapter. ♡</h1>
+    <p>Thank you for being you, Aryan.<br>Happy Boyfriend’s Day.</p>
+    <button onclick="show('welcome')">Read it again ↺</button>
+    <div class="footer-note">With love, Kashish.</div>
+  </section>
+</main>
+
+<script>
+  const order=['welcome','envelope','letter','memories','final'];
+  function show(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('progress').style.width=((order.indexOf(id)+1)/order.length*100)+'%';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
