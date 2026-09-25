@@ -33,23 +33,23 @@
   .memory{background:#fff;border:1px solid #f5ccd9;border-radius:14px;padding:22px 10px;font-family:Arial,sans-serif;font-size:13px;min-height:110px;display:grid;place-items:center}
   .footer-note{font:12px Arial,sans-serif;color:#a45c76;margin-top:20px}
   .progress{position:fixed;top:0;left:0;height:4px;background:var(--deep);width:0;z-index:10;transition:.3s}timeline-photo {
-  display: block !important;
-  width: 400px !important;
-  max-width: 100% !important;
-  height: 300px !important;
-  object-fit: cover !important;
-  margin: 20px auto !important;
-  border-radius: 16px !important;
-  border: 2px solid #f8d9e3 !important;
-  box-shadow: 0 6px 18px rgba(160, 70, 100, 0.12) !important;
-}
-@media (max-width: 480px) {
-  .timeline-photo {
-    width: 90%;
-    max-width: 280px;
-    height: 200px;
-    border-radius: 12px;
+    display: block !important;
+    width: 360px !important;
+    max-width: 90% !important;
+    height: 260px !important;
+    object-fit: cover !important;
+    margin: 20px auto !important;
+    border-radius: 16px !important;
+    border: 2px solid #f8d9e3 !important;
+    box-shadow: 0 6px 18px rgba(160, 70, 100, 0.12) !important;
   }
+
+  @media (max-width: 480px) {
+    .timeline-photo {
+      width: 100% !important;
+      max-width: 320px !important;
+      height: 240px !important;
+    }
 }
 </style>
 </head>
