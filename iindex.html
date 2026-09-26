@@ -238,17 +238,24 @@ button:hover {
 
 /* envelope flap */
 
-.envelope-flap {
+.envelope-body {
   position: absolute;
-  top: -2px;
-  left: 50%;
-  width: 228px;
-  height: 228px;
-  background: #fff9fb;
-  border-left: 2px solid #f3c8d6;
-  border-bottom: 2px solid #f3c8d6;
-  transform: translateX(-50%) rotate(45deg);
-  z-index: 3;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.envelope-body span {
+  margin-top: 65px;
+  color: #a94f6d;
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+  z-index: 5;
+}
 }
 
 /* envelope lower folds */
