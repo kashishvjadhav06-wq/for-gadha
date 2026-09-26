@@ -4,765 +4,885 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Aruuu ♡</title>
+<title>For Aryan ♡</title>
 
 <style>
-  :root {
-    --pink: #f7b8cb;
-    --light: #fff7fa;
-    --deep: #9d4264;
-    --text: #542c3c;
-  }
 
-  * {
-    box-sizing: border-box;
-  }
+/* =========================
+   BASIC
+========================= */
 
-  body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: linear-gradient(135deg, #fff8fb, #ffe8f0);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  /* FLOATING HEARTS */
-  .hearts span {
-    position: fixed;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff8fb;
+  color: #633b49;
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND HEARTS
+========================= */
+
+.heart {
+  position: fixed;
+  color: #f4c6d5;
+  font-size: 18px;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: floatHeart 7s linear infinite;
+}
+
+.heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+  left: 55%;
+  animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+  left: 80%;
+  animation-delay: 1s;
+}
+
+@keyframes floatHeart {
+  0% {
     bottom: -30px;
-    font-size: 20px;
-    animation: float 9s linear infinite;
-    opacity: 0.55;
-    z-index: 0;
-    pointer-events: none;
+    transform: translateX(0);
   }
 
-  .hearts span:nth-child(1) {
-    left: 8%;
-    animation-delay: 0s;
+  100% {
+    bottom: 110%;
+    transform: translateX(30px);
+  }
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 20%;
+  background: #d98da8;
+  z-index: 1000;
+  transition: width 0.5s ease;
+}
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  max-width: 700px;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
 
-  .hearts span:nth-child(2) {
-    left: 28%;
-    animation-delay: 2s;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TEXT
+========================= */
+
+h1 {
+  color: #a94f6d;
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  color: #a94f6d;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: #a94f6d;
+  font-size: 23px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.subtitle {
+  color: #9a6878;
+  font-size: 18px;
+}
+
+.small {
+  font-size: 14px;
+  color: #a97989;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+  border: none;
+  background: #d98da8;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 25px;
+  box-shadow: 0 8px 20px rgba(180, 80, 110, 0.18);
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  background: #c87996;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome-heart {
+  font-size: 65px;
+  margin-bottom: 15px;
+  animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
   }
 
-  .hearts span:nth-child(3) {
-    left: 50%;
-    animation-delay: 4s;
+  50% {
+    transform: scale(1.12);
   }
+}
 
-  .hearts span:nth-child(4) {
-    left: 75%;
-    animation-delay: 1s;
-  }
+.welcome-name {
+  font-size: 48px;
+  color: #a94f6d;
+}
 
-  .hearts span:nth-child(5) {
-    left: 90%;
-    animation-delay: 5s;
-  }
+/* =========================
+   ENVELOPE
+========================= */
 
-  @keyframes float {
-    to {
-      transform: translateY(-110vh) rotate(25deg);
-      opacity: 0;
-    }
-  }
+.envelope-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 25px;
+  cursor: pointer;
+}
 
-  /* MAIN */
-  main {
-    position: relative;
-    z-index: 1;
-    max-width: 850px;
-    margin: auto;
-    padding: 28px 18px 60px;
-  }
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  background: #ffffff;
+  border: 2px solid #f3c8d6;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(180, 80, 110, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
 
-  /* SCREENS */
-  .screen {
-    display: none;
-    text-align: center;
-    min-height: 85vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 18px;
-  }
+.envelope:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 42px rgba(180, 80, 110, 0.25);
+}
 
-  .screen.active {
-    display: flex;
-  }
+/* envelope flap */
 
-  /* TEXT */
+.envelope-flap {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 228px;
+  height: 228px;
+  background: #fff9fb;
+  border-left: 2px solid #f3c8d6;
+  border-bottom: 2px solid #f3c8d6;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 3;
+}
+
+/* envelope lower folds */
+
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.envelope-body span {
+  margin-top: 50px;
+  color: #a94f6d;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.envelope-body::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 52%;
+  height: 2px;
+  background: #f3c8d6;
+  transform: rotate(31deg);
+  transform-origin: left bottom;
+}
+
+.envelope-body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 52%;
+  height: 2px;
+  background: #f3c8d6;
+  transform: rotate(-31deg);
+  transform-origin: right bottom;
+}
+
+.tap-text {
+  color: #b56b83;
+  font-size: 14px;
+  margin-top: 25px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #f2d4df;
+  border-radius: 22px;
+  padding: 40px 35px;
+  box-shadow: 0 15px 35px rgba(160, 70, 100, 0.1);
+  text-align: left;
+}
+
+.letter-card .center {
+  text-align: center;
+}
+
+.letter-card p {
+  color: #694451;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 30px;
+  color: #a94f6d;
+  font-style: italic;
+  font-size: 18px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+  position: relative;
+  margin-top: 35px;
+}
+
+.timeline-item {
+  background: #ffffff;
+  border: 1px solid #f2d4df;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 10px 25px rgba(160, 70, 100, 0.08);
+}
+
+.timeline-date {
+  color: #c47792;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.timeline-item h3 {
+  margin: 8px 0 10px;
+}
+
+.timeline-photo {
+  display: block;
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  margin: 20px auto;
+  border-radius: 16px;
+  border: 2px solid #f8d9e3;
+  box-shadow: 0 8px 22px rgba(160, 70, 100, 0.12);
+}
+
+/* =========================
+   FINAL PHOTO
+========================= */
+
+.final-photo {
+  display: block;
+  width: 340px;
+  height: 255px;
+  object-fit: cover;
+  margin: 10px auto 25px;
+  border-radius: 18px;
+  border: 2px solid #f8d9e3;
+  box-shadow: 0 10px 28px rgba(160, 70, 100, 0.15);
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-message {
+  font-size: 28px;
+  color: #a94f6d;
+  line-height: 1.5;
+}
+
+.forever {
+  font-size: 18px;
+  color: #916171;
+  margin-top: 20px;
+}
+
+.back-button {
+  background: transparent;
+  color: #b56b83;
+  box-shadow: none;
+  border: 1px solid #e9bacb;
+}
+
+.back-button:hover {
+  background: #fff0f5;
+  color: #a94f6d;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
   h1 {
-    font-size: clamp(2.3rem, 8vw, 5rem);
-    margin: 0;
-    color: var(--deep);
-    font-weight: normal;
+    font-size: 34px;
   }
 
   h2 {
-    font-size: clamp(1.7rem, 5vw, 3rem);
-    font-weight: normal;
-    color: var(--deep);
-    margin: 10px 0;
+    font-size: 27px;
   }
 
-  h3 {
-    color: var(--deep);
-    font-size: 1.35rem;
-    font-weight: normal;
-    margin: 10px 0;
+  .welcome-name {
+    font-size: 40px;
   }
 
   p {
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
-    font-size: 1rem;
-  }
-
-  .eyebrow {
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font: 12px Arial, sans-serif;
-    color: #a45c76;
-  }
-
-  /* BUTTONS */
-  button {
-    border: 0;
-    background: var(--deep);
-    color: white;
-    border-radius: 999px;
-    padding: 14px 26px;
-    cursor: pointer;
-    font: 600 14px Arial, sans-serif;
-    box-shadow: 0 8px 20px #b35e7b30;
-    transition: 0.2s;
-  }
-
-  button:hover {
-    transform: translateY(-2px);
-    background: #7e304e;
-  }
-
-  .secondary {
-    background: white;
-    color: var(--deep);
-    border: 1px solid var(--pink);
-  }
-
-  /* ENVELOPE */
-  .envelope-wrap {
-    perspective: 1000px;
-    margin: 15px;
+    font-size: 16px;
   }
 
   .envelope {
-    width: min(340px, 82vw);
-    height: 220px;
-    background: #f4b4c8;
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px #a34d6c25;
-    cursor: pointer;
-    overflow: hidden;
+    width: 285px;
+    height: 180px;
   }
 
-  .envelope:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-style: solid;
-    border-width: 110px 170px 0;
-    border-color: #e99bb5 transparent transparent;
-    z-index: 2;
+  .envelope-flap {
+    width: 205px;
+    height: 205px;
   }
 
-  .envelope:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-style: solid;
-    border-width: 0 170px 120px;
-    border-color: transparent transparent #f8cbd8;
-    z-index: 1;
+  .letter-card {
+    padding: 28px 22px;
   }
 
-  .seal {
-    position: absolute;
-    z-index: 4;
-    left: 50%;
-    top: 48%;
-    transform: translate(-50%, -50%);
-    background: #fff0f5;
-    color: #a03e62;
-    border-radius: 50%;
-    width: 58px;
-    height: 58px;
-    display: grid;
-    place-items: center;
-    font-size: 25px;
-  }
-
-  /* LETTER */
-  .letter {
-    background: #fffdfb;
-    padding: 35px 28px;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px #a34d6c18;
-    text-align: left;
-    max-width: 650px;
-    width: 100%;
-    border: 1px solid #f7d8e2;
-  }
-
-  .letter p {
-    font-family: Georgia, serif;
-    font-size: 1.08rem;
-  }
-
-  .signature {
-    text-align: right;
-    font-size: 1.2rem;
-    color: var(--deep);
-    margin-top: 28px;
-  }
-
-  /* TIMELINE */
-  .timeline {
-    width: 100%;
-    max-width: 700px;
-    margin: 10px auto;
-    position: relative;
-  }
-
-  .timeline-item {
-    position: relative;
-    margin: 0 0 35px;
-    padding: 22px;
-    background: rgba(255,255,255,0.75);
-    border: 1px solid #f5ccd9;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(160,70,100,0.08);
-  }
-
-  .timeline-dot {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #fff0f5;
-    border: 2px solid #f3b6c9;
-    color: var(--deep);
-    display: grid;
-    place-items: center;
-    margin: 0 auto 10px;
-    font-size: 20px;
-  }
-
-  .timeline-content {
-    text-align: center;
-  }
-
-  .timeline-date {
-    display: block;
-    font: 12px Arial, sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #a45c76;
-    margin-bottom: 6px;
-  }
-
-  .timeline-content p {
-    margin-bottom: 0;
-  }
-
-  /* TIMELINE PHOTOS */
   .timeline-photo {
-    display: block;
-    width: 320px;
+    width: 88%;
+    max-width: 320px;
     height: 240px;
-    max-width: 88%;
-    object-fit: cover;
-    margin: 20px auto;
-    border-radius: 16px;
-    border: 2px solid #f8d9e3;
-    box-shadow: 0 8px 22px rgba(160,70,100,0.12);
   }
 
-  .timeline-ending {
-    color: var(--deep);
-    font-family: Georgia, serif;
-    font-size: 1.1rem;
-  }
-
-  /* FINAL PHOTO */
   .final-photo {
-    display: block;
-    width: 340px;
+    width: 88%;
+    max-width: 340px;
     height: 255px;
-    max-width: 88%;
-    object-fit: cover;
-    margin: 10px auto 18px;
-    border-radius: 18px;
-    border: 2px solid #f8d9e3;
-    box-shadow: 0 10px 28px rgba(160,70,100,0.15);
   }
 
-  /* FOOTER */
-  .footer-note {
-    font: 12px Arial, sans-serif;
-    color: #a45c76;
-    margin-top: 20px;
+  .final-message {
+    font-size: 24px;
   }
+}
 
-  /* PROGRESS BAR */
-  .progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: var(--deep);
-    width: 0;
-    z-index: 10;
-    transition: 0.3s;
-  }
-
-  /* MOBILE */
-  @media (max-width: 480px) {
-
-    main {
-      padding: 22px 14px 50px;
-    }
-
-    .letter {
-      padding: 26px 20px;
-    }
-
-    .timeline-photo {
-      width: 88%;
-      max-width: 320px;
-      height: 240px;
-    }
-
-    .final-photo {
-      width: 88%;
-      max-width: 340px;
-      height: 255px;
-    }
-
-    .envelope {
-      width: 300px;
-      max-width: 88vw;
-    }
-
-    .envelope:before {
-      border-width: 110px 150px 0;
-    }
-
-    .envelope:after {
-      border-width: 0 150px 120px;
-    }
-  }
 </style>
 </head>
 
+
 <body>
 
-<!-- MUSIC: ONLY ONE AUDIO PLAYER -->
+<!-- Floating hearts -->
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+
+<!-- Progress -->
+<div id="progress"></div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PROGRESS -->
-<div class="progress" id="progress"></div>
 
-<!-- FLOATING HEARTS -->
-<div class="hearts">
-  <span>♡</span>
-  <span>♡</span>
-  <span>♡</span>
-  <span>♡</span>
-  <span>♡</span>
-</div>
+<!-- =========================
+     WELCOME
+========================= -->
 
-<main>
+<section class="screen active" id="welcome">
 
-  <!-- ========================= -->
-  <!-- PAGE 1: WELCOME -->
-  <!-- ========================= -->
+  <div class="content">
 
-  <section class="screen active" id="welcome">
+    <div class="welcome-heart">♡</div>
 
-    <div class="eyebrow">
-      A tiny website made with a very big heart
+    <p class="small">A little something...</p>
+
+    <h1>For my favourite person</h1>
+
+    <div class="welcome-name">
+      Aryan
     </div>
 
-    <h1>For My Aruuu ♡</h1>
-
-    <p>
-      Some feelings deserve more than a text message.<br>
-      So I made you a little place on the internet.
+    <p class="subtitle">
+      I made this little corner of the internet<br>
+      just for you.
     </p>
 
-    <!-- MUSIC STARTS HERE ONLY -->
     <button onclick="startMusic(); show('envelope')">
       Open your surprise →
     </button>
 
-    <div class="footer-note">
-      Made especially for you, Aryan.
-    </div>
+  </div>
 
-  </section>
+</section>
 
 
-  <!-- ========================= -->
-  <!-- PAGE 2: ENVELOPE -->
-  <!-- ========================= -->
+<!-- =========================
+     ENVELOPE
+========================= -->
 
-  <section class="screen" id="envelope">
+<section class="screen" id="envelope">
 
-    <div class="eyebrow">
-      You have one unopened letter
-    </div>
+  <div class="content">
 
-    <h2>
-      For the boy who feels like home
-    </h2>
+    <h1>Something for you ♡</h1>
 
-    <div
-      class="envelope-wrap"
-      onclick="show('letter')"
-      aria-label="Open envelope"
-    >
-      <div class="envelope">
-        <div class="seal">♡</div>
-      </div>
-    </div>
-
-    <p>
-      Tap the envelope to open it.
+    <p class="subtitle">
+      There is a little letter waiting inside...
     </p>
 
-    <button
-      class="secondary"
-      onclick="show('welcome')"
-    >
-      Back
-    </button>
+    <div class="envelope-wrap" onclick="show('letter')">
 
-  </section>
+      <div class="envelope">
 
+        <div class="envelope-flap"></div>
 
-  <!-- ========================= -->
-  <!-- PAGE 3: LOVE LETTER -->
-  <!-- ========================= -->
+        <div class="envelope-body">
+          <span>For Aryan ♡</span>
+        </div>
 
-  <section class="screen" id="letter">
+      </div>
 
-    <div class="eyebrow">
-      A letter written only for you ♡
     </div>
 
-    <div class="letter">
+    <p class="tap-text">
+      ♡ tap the envelope to open ♡
+    </p>
 
-      <h2>To my Aruuu, ❤️</h2>
+  </div>
 
-      <p>
-        Happy Boyfriend's Day, my love.
-      </p>
+</section>
 
-      <p>
-        I don't think I can ever put everything I feel for you into words,
-        but I still wanted to try. You have become such a special part of
-        my life, and somewhere between all our conversations, silly moments,
-        fights, laughter, and ordinary days, you became someone I can't
-        imagine my story without.
-      </p>
 
-      <p>
-        I love the little things about us. The moments that nobody else
-        would understand, the memories we make without even trying, and the
-        way you can make an ordinary day feel different just by being there.
-      </p>
+<!-- =========================
+     LOVE LETTER
+========================= -->
 
-      <p>
-        We aren't perfect, and neither are our days. But what we share means
-        something to me. More than I sometimes know how to explain. I hope
-        you always remember that you are loved, appreciated, and that you
-        hold a very special place in my heart.
-      </p>
+<section class="screen" id="letter">
+
+  <div class="content">
+
+    <div class="letter-card">
+
+      <div class="center">
+
+        <p class="small">Dear Aryan,</p>
+
+        <h2>Where do I even begin? ♡</h2>
+
+      </div>
 
       <p>
-        Thank you for being my person in so many little ways. My brightest
-        star, my comfort, my favourite boy. 🥹❤️
-      </p>
-
-      <p>
-        I don't need a perfect story. I just want the real one, with all
-        its little moments, memories, and everything that makes it ours.
+        Maybe with the fact that somehow, somewhere between all
+        the random conversations, silly fights, laughs and little
+        moments, you became such an important part of my life.
       </p>
 
       <p>
-        Happy Boyfriend's Day, Aryan.
+        What started as something I could never have predicted
+        became one of my favourite parts of my everyday life.
       </p>
 
       <p>
-        With all my love,
+        And when I think about us, I don't just think about the
+        big moments. I think about the tiny things too — the
+        conversations, the teasing, the comfort, the way you
+        somehow became my person.
       </p>
 
-      <p class="signature">
-        Your Kashuu ♡
+      <p>
+        So I made this little website because I wanted to keep
+        some of those moments in one place.
       </p>
+
+      <p>
+        Our story may not always be perfect, but it is ours.
+        And that is what makes it special to me.
+      </p>
+
+      <div class="signature">
+        — Kashu ♡
+      </div>
 
     </div>
 
     <button onclick="show('memories')">
-      Our little memories →
+      Our little story →
     </button>
 
-  </section>
+    <br>
+
+    <button class="back-button" onclick="show('envelope')">
+      ← Back
+    </button>
+
+  </div>
+
+</section>
 
 
-  <!-- ========================= -->
-  <!-- PAGE 4: TIMELINE -->
-  <!-- ========================= -->
+<!-- =========================
+     TIMELINE
+========================= -->
 
-  <section class="screen" id="memories">
+<section class="screen" id="memories">
 
-    <div class="eyebrow">
-      A few chapters of us
-    </div>
+  <div class="content">
 
-    <h2>
-      Our little timeline ♡
-    </h2>
+    <h1>Our little story ♡</h1>
+
+    <p class="subtitle">
+      A few moments from our chapter.
+    </p>
+
 
     <div class="timeline">
 
-      <!-- TIMELINE 1 -->
+
+      <!-- 15 APRIL 2024 -->
 
       <div class="timeline-item">
 
-        <div class="timeline-dot">
-          ♡
+        <div class="timeline-date">
+          15 April 2024
         </div>
 
-        <div class="timeline-content">
+        <h3>The day it became us</h3>
 
-          <span class="timeline-date">
-            15 April 2024
-          </span>
+        <img
+          src="timeline1.jpg"
+          alt="Our memory"
+          class="timeline-photo"
+        >
 
-          <h3>
-            The day it became us ♡
-          </h3>
-
-          <img
-            src="timeline1.jpg"
-            alt="Our beginning"
-            class="timeline-photo"
-          >
-
-          <p>
-            Every beautiful story has a beginning.
-            Ours began on a day that became one of the
-            most special dates in my heart.
-          </p>
-
-        </div>
+        <p>
+          The day our story officially became ours.
+          A date that quietly became one of the most
+          important dates in my heart.
+        </p>
 
       </div>
 
 
-      <!-- TIMELINE 2 -->
+      <!-- LITTLE THINGS -->
 
       <div class="timeline-item">
 
-        <div class="timeline-dot">
-          ♡
+        <div class="timeline-date">
+          All the little things
         </div>
 
-        <div class="timeline-content">
+        <h3>The moments I keep close</h3>
 
-          <span class="timeline-date">
-            Our little moments
-          </span>
+        <img
+          src="timeline2.jpg"
+          alt="Our memory"
+          class="timeline-photo"
+        >
 
-          <h3>
-            All the little things ♡
-          </h3>
-
-          <img
-            src="timeline2.jpg"
-            alt="Our little moments"
-            class="timeline-photo"
-          >
-
-          <p>
-            Some of my favourite memories aren't grand moments.
-            They're the laughter, conversations, silly things,
-            and ordinary days that became special because
-            they had you in them.
-          </p>
-
-        </div>
+        <p>
+          The random conversations, stupid jokes, teasing,
+          laughs, fights, making up and all those tiny moments
+          that somehow mean so much.
+        </p>
 
       </div>
 
 
-      <!-- TIMELINE 3 -->
+      <!-- MEMORY -->
 
       <div class="timeline-item">
 
-        <div class="timeline-dot">
-          ♡
+        <div class="timeline-date">
+          Us
         </div>
 
-        <div class="timeline-content">
+        <h3>Somewhere along the way...</h3>
 
-          <span class="timeline-date">
-            A chapter still being written
-          </span>
+        <img
+          src="timeline3.jpg"
+          alt="Our memory"
+          class="timeline-photo"
+        >
 
-          <h3>
-            Our tomorrow, our forever ♡
-          </h3>
-
-          <img
-            src="timeline3.jpg"
-            alt="Our future together"
-            class="timeline-photo"
-          >
-
-          <p>
-            I don't know what every tomorrow will bring,
-            but I hope we keep making little memories,
-            finding reasons to smile, and giving our story
-            more beautiful chapters to hold.
-          </p>
-
-        </div>
+        <p>
+          You became more than just someone I loved.
+          You became someone I could look for in a crowd,
+          someone I wanted beside me, and someone who felt
+          like home.
+        </p>
 
       </div>
+
+
+      <!-- TOMORROW -->
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          Our tomorrow
+        </div>
+
+        <h3>Our tomorrow, our forever</h3>
+
+        <img
+          src="timeline4.jpg"
+          alt="Our memory"
+          class="timeline-photo"
+        >
+
+        <p>
+          I don't know exactly what every tomorrow will look
+          like, but I know there are still so many memories
+          I want to make with you.
+        </p>
+
+      </div>
+
 
     </div>
 
-    <p class="timeline-ending">
-      Some stories are written in words.
-      Ours is written in moments. ♡
-    </p>
 
     <button onclick="show('final')">
       One last thing →
     </button>
 
-  </section>
+    <br>
+
+    <button class="back-button" onclick="show('letter')">
+      ← Back
+    </button>
+
+  </div>
+
+</section>
 
 
-  <!-- ========================= -->
-  <!-- PAGE 5: FINAL -->
-  <!-- ========================= -->
+<!-- =========================
+     FINAL
+========================= -->
 
-  <section class="screen" id="final">
+<section class="screen" id="final">
 
-    <div class="eyebrow">
-      Before you go
-    </div>
-
-    <h1>
-      You are my favourite chapter. ♡
-    </h1>
+  <div class="content">
 
     <img
       src="timeline4.jpg"
-      alt="Us together at the beach"
+      alt="Us ♡"
       class="final-photo"
     >
 
-    <p>
-      Thank you for being you, Aryan.<br>
-      Happy Boyfriend’s Day.
+    <div class="final-message">
+      You are my favourite chapter. ♡
+    </div>
+
+    <p class="forever">
+      Thank you for being you, Aryan.
     </p>
 
-    <button onclick="show('welcome')">
+    <p class="forever">
+      Happy Boyfriend's Day. ♡
+    </p>
+
+    <p class="signature">
+      With love,<br>
+      Kashu
+    </p>
+
+    <button onclick="show('letter')">
       Read it again ↺
     </button>
 
-    <div class="footer-note">
-      With love, Kashu.
-    </div>
+  </div>
 
-  </section>
+</section>
 
-</main>
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-  /* PAGE ORDER */
-  const order = [
-    "welcome",
-    "envelope",
-    "letter",
-    "memories",
-    "final"
-  ];
+const order = [
+  "welcome",
+  "envelope",
+  "letter",
+  "memories",
+  "final"
+];
+
+const music = document.getElementById("bgMusic");
 
 
-  /* MUSIC */
-  const music = document.getElementById("bgMusic");
+/* =========================
+   START MUSIC
+========================= */
+
+function startMusic() {
+
+  music.volume = 0.35;
+
+  music.play().catch(function(error) {
+    console.log("Music could not autoplay:", error);
+  });
+
+}
 
 
-  function startMusic() {
+/* =========================
+   CHANGE SCREEN
+========================= */
 
-    music.volume = 0.35;
+function show(id) {
 
-    music.play().catch(function(error) {
-      console.log("Music could not start:", error);
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(screen) {
+      screen.classList.remove("active");
     });
+
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+
+  const index = order.indexOf(id);
+
+  document.getElementById("progress").style.width =
+    ((index + 1) / order.length * 100) + "%";
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================
+   KEEP MUSIC PLAYING
+========================= */
+
+document.addEventListener("visibilitychange", function() {
+
+  if (
+    document.visibilityState === "visible" &&
+    music.paused
+  ) {
+
+    music.play().catch(function() {});
 
   }
 
-
-  /* PAGE SWITCHING */
-  function show(id) {
-
-    document
-      .querySelectorAll(".screen")
-      .forEach(function(screen) {
-        screen.classList.remove("active");
-      });
-
-
-    const nextScreen = document.getElementById(id);
-
-    if (nextScreen) {
-      nextScreen.classList.add("active");
-    }
-
-
-    /* PROGRESS BAR */
-
-    const index = order.indexOf(id);
-
-    if (index !== -1) {
-
-      document.getElementById("progress").style.width =
-        ((index + 1) / order.length * 100) + "%";
-
-    }
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  }
+});
 
 </script>
 
