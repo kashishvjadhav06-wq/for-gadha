@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Aruuu ♡</title>
+
+<style>
+  :root {
+    --pink: #f7b8cb;
+    --light: #fff7fa;
+    --deep: #9d4264;
+    --text: #542c3c;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #fff8fb, #ffe8f0);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* FLOATING HEARTS */
+  .hearts span {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: float 9s linear infinite;
+    opacity: 0.55;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hearts span:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+  }
+
+  .hearts span:nth-child(2) {
+    left: 28%;
+    animation-delay: 2s;
+  }
+
+  .hearts span:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+  }
+
+  .hearts span:nth-child(4) {
+    left: 75%;
+    animation-delay: 1s;
+  }
+
+  .hearts span:nth-child(5) {
+    left: 90%;
+    animation-delay: 5s;
+  }
+
+  @keyframes float {
+    to {
+      transform: translateY(-110vh) rotate(25deg);
+      opacity: 0;
+    }
+  }
+
+  /* MAIN */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    margin: auto;
+    padding: 28px 18px 60px;
+  }
+
+  /* SCREENS */
+  .screen {
+    display: none;
+    text-align: center;
+    min-height: 85vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .screen.active {
+    display: flex;
+  }
+
+  /* TEXT */
+  h1 {
+    font-size: clamp(2.3rem, 8vw, 5rem);
+    margin: 0;
+    color: var(--deep);
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 5vw, 3rem);
+    font-weight: normal;
+    color: var(--deep);
+    margin: 10px 0;
+  }
+
+  h3 {
+    color: var(--deep);
+    font-size: 1.35rem;
+    font-weight: normal;
+    margin: 10px 0;
+  }
+
+  p {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font: 12px Arial, sans-serif;
+    color: #a45c76;
+  }
+
+  /* BUTTONS */
+  button {
+    border: 0;
+    background: var(--deep);
+    color: white;
+    border-radius: 999px;
+    padding: 14px 26px;
+    cursor: pointer;
+    font: 600 14px Arial, sans-serif;
+    box-shadow: 0 8px 20px #b35e7b30;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    background: #7e304e;
+  }
+
+  .secondary {
+    background: white;
+    color: var(--deep);
+    border: 1px solid var(--pink);
+  }
+
+  /* ENVELOPE */
+  .envelope-wrap {
+    perspective: 1000px;
+    margin: 15px;
+  }
+
+  .envelope {
+    width: min(340px, 82vw);
+    height: 220px;
+    background: #f4b4c8;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px #a34d6c25;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .envelope:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-style: solid;
+    border-width: 110px 170px 0;
+    border-color: #e99bb5 transparent transparent;
+    z-index: 2;
+  }
+
+  .envelope:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-style: solid;
+    border-width: 0 170px 120px;
+    border-color: transparent transparent #f8cbd8;
+    z-index: 1;
+  }
+
+  .seal {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    background: #fff0f5;
+    color: #a03e62;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+  }
+
+  /* LETTER */
+  .letter {
+    background: #fffdfb;
+    padding: 35px 28px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px #a34d6c18;
+    text-align: left;
+    max-width: 650px;
+    width: 100%;
+    border: 1px solid #f7d8e2;
+  }
+
+  .letter p {
+    font-family: Georgia, serif;
+    font-size: 1.08rem;
+  }
+
+  .signature {
+    text-align: right;
+    font-size: 1.2rem;
+    color: var(--deep);
+    margin-top: 28px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    width: 100%;
+    max-width: 700px;
+    margin: 10px auto;
+    position: relative;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin: 0 0 35px;
+    padding: 22px;
+    background: rgba(255,255,255,0.75);
+    border: 1px solid #f5ccd9;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(160,70,100,0.08);
+  }
+
+  .timeline-dot {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #fff0f5;
+    border: 2px solid #f3b6c9;
+    color: var(--deep);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 10px;
+    font-size: 20px;
+  }
+
+  .timeline-content {
+    text-align: center;
+  }
+
+  .timeline-date {
+    display: block;
+    font: 12px Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a45c76;
+    margin-bottom: 6px;
+  }
+
+  .timeline-content p {
+    margin-bottom: 0;
+  }
+
+  /* TIMELINE PHOTOS */
+  .timeline-photo {
+    display: block;
+    width: 320px;
+    height: 240px;
+    max-width: 88%;
+    object-fit: cover;
+    margin: 20px auto;
+    border-radius: 16px;
+    border: 2px solid #f8d9e3;
+    box-shadow: 0 8px 22px rgba(160,70,100,0.12);
+  }
+
+  .timeline-ending {
+    color: var(--deep);
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+  }
+
+  /* FINAL PHOTO */
+  .final-photo {
+    display: block;
+    width: 340px;
+    height: 255px;
+    max-width: 88%;
+    object-fit: cover;
+    margin: 10px auto 18px;
+    border-radius: 18px;
+    border: 2px solid #f8d9e3;
+    box-shadow: 0 10px 28px rgba(160,70,100,0.15);
+  }
+
+  /* FOOTER */
+  .footer-note {
+    font: 12px Arial, sans-serif;
+    color: #a45c76;
+    margin-top: 20px;
+  }
+
+  /* PROGRESS BAR */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--deep);
+    width: 0;
+    z-index: 10;
+    transition: 0.3s;
+  }
+
+  /* MOBILE */
+  @media (max-width: 480px) {
+
+    main {
+      padding: 22px 14px 50px;
+    }
+
+    .letter {
+      padding: 26px 20px;
+    }
+
+    .timeline-photo {
+      width: 88%;
+      max-width: 320px;
+      height: 240px;
+    }
+
+    .final-photo {
+      width: 88%;
+      max-width: 340px;
+      height: 255px;
+    }
+
+    .envelope {
+      width: 300px;
+      max-width: 88vw;
+    }
+
+    .envelope:before {
+      border-width: 110px 150px 0;
+    }
+
+    .envelope:after {
+      border-width: 0 150px 120px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC: ONLY ONE AUDIO PLAYER -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PROGRESS -->
+<div class="progress" id="progress"></div>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts">
+  <span>♡</span>
+  <span>♡</span>
+  <span>♡</span>
+  <span>♡</span>
+  <span>♡</span>
+</div>
+
+<main>
+
+  <!-- ========================= -->
+  <!-- PAGE 1: WELCOME -->
+  <!-- ========================= -->
+
+  <section class="screen active" id="welcome">
+
+    <div class="eyebrow">
+      A tiny website made with a very big heart
+    </div>
+
+    <h1>For My Aruuu ♡</h1>
+
+    <p>
+      Some feelings deserve more than a text message.<br>
+      So I made you a little place on the internet.
+    </p>
+
+    <!-- MUSIC STARTS HERE ONLY -->
+    <button onclick="startMusic(); show('envelope')">
+      Open your surprise →
+    </button>
+
+    <div class="footer-note">
+      Made especially for you, Aryan.
+    </div>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- PAGE 2: ENVELOPE -->
+  <!-- ========================= -->
+
+  <section class="screen" id="envelope">
+
+    <div class="eyebrow">
+      You have one unopened letter
+    </div>
+
+    <h2>
+      For the boy who feels like home
+    </h2>
+
+    <div
+      class="envelope-wrap"
+      onclick="show('letter')"
+      aria-label="Open envelope"
+    >
+      <div class="envelope">
+        <div class="seal">♡</div>
+      </div>
+    </div>
+
+    <p>
+      Tap the envelope to open it.
+    </p>
+
+    <button
+      class="secondary"
+      onclick="show('welcome')"
+    >
+      Back
+    </button>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- PAGE 3: LOVE LETTER -->
+  <!-- ========================= -->
+
+  <section class="screen" id="letter">
+
+    <div class="eyebrow">
+      A letter written only for you ♡
+    </div>
+
+    <div class="letter">
+
+      <h2>To my Aruuu, ❤️</h2>
+
+      <p>
+        Happy Boyfriend's Day, my love.
+      </p>
+
+      <p>
+        I don't think I can ever put everything I feel for you into words,
+        but I still wanted to try. You have become such a special part of
+        my life, and somewhere between all our conversations, silly moments,
+        fights, laughter, and ordinary days, you became someone I can't
+        imagine my story without.
+      </p>
+
+      <p>
+        I love the little things about us. The moments that nobody else
+        would understand, the memories we make without even trying, and the
+        way you can make an ordinary day feel different just by being there.
+      </p>
+
+      <p>
+        We aren't perfect, and neither are our days. But what we share means
+        something to me. More than I sometimes know how to explain. I hope
+        you always remember that you are loved, appreciated, and that you
+        hold a very special place in my heart.
+      </p>
+
+      <p>
+        Thank you for being my person in so many little ways. My brightest
+        star, my comfort, my favourite boy. 🥹❤️
+      </p>
+
+      <p>
+        I don't need a perfect story. I just want the real one, with all
+        its little moments, memories, and everything that makes it ours.
+      </p>
+
+      <p>
+        Happy Boyfriend's Day, Aryan.
+      </p>
+
+      <p>
+        With all my love,
+      </p>
+
+      <p class="signature">
+        Your Kashuu ♡
+      </p>
+
+    </div>
+
+    <button onclick="show('memories')">
+      Our little memories →
+    </button>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- PAGE 4: TIMELINE -->
+  <!-- ========================= -->
+
+  <section class="screen" id="memories">
+
+    <div class="eyebrow">
+      A few chapters of us
+    </div>
+
+    <h2>
+      Our little timeline ♡
+    </h2>
+
+    <div class="timeline">
+
+      <!-- TIMELINE 1 -->
+
+      <div class="timeline-item">
+
+        <div class="timeline-dot">
+          ♡
+        </div>
+
+        <div class="timeline-content">
+
+          <span class="timeline-date">
+            15 April 2024
+          </span>
+
+          <h3>
+            The day it became us ♡
+          </h3>
+
+          <img
+            src="timeline1.jpg"
+            alt="Our beginning"
+            class="timeline-photo"
+          >
+
+          <p>
+            Every beautiful story has a beginning.
+            Ours began on a day that became one of the
+            most special dates in my heart.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- TIMELINE 2 -->
+
+      <div class="timeline-item">
+
+        <div class="timeline-dot">
+          ♡
+        </div>
+
+        <div class="timeline-content">
+
+          <span class="timeline-date">
+            Our little moments
+          </span>
+
+          <h3>
+            All the little things ♡
+          </h3>
+
+          <img
+            src="timeline2.jpg"
+            alt="Our little moments"
+            class="timeline-photo"
+          >
+
+          <p>
+            Some of my favourite memories aren't grand moments.
+            They're the laughter, conversations, silly things,
+            and ordinary days that became special because
+            they had you in them.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- TIMELINE 3 -->
+
+      <div class="timeline-item">
+
+        <div class="timeline-dot">
+          ♡
+        </div>
+
+        <div class="timeline-content">
+
+          <span class="timeline-date">
+            A chapter still being written
+          </span>
+
+          <h3>
+            Our tomorrow, our forever ♡
+          </h3>
+
+          <img
+            src="timeline3.jpg"
+            alt="Our future together"
+            class="timeline-photo"
+          >
+
+          <p>
+            I don't know what every tomorrow will bring,
+            but I hope we keep making little memories,
+            finding reasons to smile, and giving our story
+            more beautiful chapters to hold.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="timeline-ending">
+      Some stories are written in words.
+      Ours is written in moments. ♡
+    </p>
+
+    <button onclick="show('final')">
+      One last thing →
+    </button>
+
+  </section>
+
+
+  <!-- ========================= -->
+  <!-- PAGE 5: FINAL -->
+  <!-- ========================= -->
+
+  <section class="screen" id="final">
+
+    <div class="eyebrow">
+      Before you go
+    </div>
+
+    <h1>
+      You are my favourite chapter. ♡
+    </h1>
+
+    <img
+      src="timeline4.jpg"
+      alt="Us together at the beach"
+      class="final-photo"
+    >
+
+    <p>
+      Thank you for being you, Aryan.<br>
+      Happy Boyfriend’s Day.
+    </p>
+
+    <button onclick="show('welcome')">
+      Read it again ↺
+    </button>
+
+    <div class="footer-note">
+      With love, Kashu.
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+  /* PAGE ORDER */
+  const order = [
+    "welcome",
+    "envelope",
+    "letter",
+    "memories",
+    "final"
+  ];
+
+
+  /* MUSIC */
+  const music = document.getElementById("bgMusic");
+
+
+  function startMusic() {
+
+    music.volume = 0.35;
+
+    music.play().catch(function(error) {
+      console.log("Music could not start:", error);
+    });
+
+  }
+
+
+  /* PAGE SWITCHING */
+  function show(id) {
+
+    document
+      .querySelectorAll(".screen")
+      .forEach(function(screen) {
+        screen.classList.remove("active");
+      });
+
+
+    const nextScreen = document.getElementById(id);
+
+    if (nextScreen) {
+      nextScreen.classList.add("active");
+    }
+
+
+    /* PROGRESS BAR */
+
+    const index = order.indexOf(id);
+
+    if (index !== -1) {
+
+      document.getElementById("progress").style.width =
+        ((index + 1) / order.length * 100) + "%";
+
+    }
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+</script>
+
+</body>
+</html>
