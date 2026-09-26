@@ -66,21 +66,25 @@
     <h1>For My Aruuu ♡</h1>
     <p>Some feelings deserve more than a text message.<br>So I made you a little place on the internet.</p>
     <button onclick="show('envelope')">Open your surprise →</button>
+   
     <div class="footer-note">Made especially for you, Aryan.</div>
   </section>
 
   <section class="screen" id="envelope">
-    <div class="eyebrow">You have one unopened letter</div>
-    <h2>For the boy who feels like home</h2>
-    <div class="envelope-wrap" onclick="show('letter')" aria-label="Open envelope">
-      <div class="envelope"><div class="seal">♡</div></div>
+  <section class="screen" id="envelope">
+  <div class="eyebrow">You have one unopened letter</div>
+  <h2>For the boy who feels like home</h2>
+
+  <div class="envelope-wrap" onclick="show('letter')" aria-label="Open envelope">
+    <div class="envelope">
+      <div class="seal">♡</div>
     </div>
-    <p>Tap the envelope to open it.</p>
-  <button onclick="startMusic(); show('envelope')">
-  Open your surprise →
-</button>
-<section class="screen" id="letter">
-  <div class="eyebrow">A letter written only for you ♡</div>
+  </div>
+
+  <p>Tap the envelope to open it.</p>
+
+  <button class="secondary" onclick="show('welcome')">Back</button>
+</section>
 
   <div class="letter">
     <h2>To my Aruuu, ❤️</h2>
@@ -246,14 +250,16 @@ style="width:280px !important; height:200px !important; max-width:280px !importa
   const order=['welcome','envelope','letter','memories','final'];
   const music = document.getElementById('bgMusic');
 
-function startMusic() {
-  music.volume = 0.35;
-  music.play();
-}
+  function startMusic() {
+    music.volume = 0.35;
+    music.play();
+  }
+
   function show(id){
     document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    document.getElementById('progress').style.width=((order.indexOf(id)+1)/order.length*100)+'%';
+    document.getElementById('progress').style.width =
+      ((order.indexOf(id)+1)/order.length*100)+'%';
     window.scrollTo({top:0,behavior:'smooth'});
   }
 </script>
