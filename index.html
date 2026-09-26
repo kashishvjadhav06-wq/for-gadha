@@ -76,8 +76,9 @@
       <div class="envelope"><div class="seal">♡</div></div>
     </div>
     <p>Tap the envelope to open it.</p>
-    <button class="secondary" onclick="show('welcome')">Back</button>
-  </section>
+  <button onclick="startMusic(); show('envelope')">
+  Open your surprise →
+</button>
 
  <section class="screen" id="letter">
   <div class="eyebrow">A letter written only for you ♡</div>
@@ -244,6 +245,12 @@ style="width:280px !important; height:200px !important; max-width:280px !importa
 </main>
 <script>
   const order=['welcome','envelope','letter','memories','final'];
+  const music = document.getElementById('bgMusic');
+
+function startMusic() {
+  music.volume = 0.35;
+  music.play();
+}
   function show(id){
     document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
