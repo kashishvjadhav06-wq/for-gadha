@@ -254,16 +254,24 @@ style="width:280px !important; height:200px !important; max-width:280px !importa
 
   function startMusic() {
     music.volume = 0.35;
-    music.play();
-  }
+   music.play();
+}
 
-  function show(id){
-    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.getElementById('progress').style.width =
-      ((order.indexOf(id)+1)/order.length*100)+'%';
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  document.getElementById('progress').style.width =
+    ((order.indexOf(id) + 1) / order.length * 100) + '%';
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
 </script>
 </body>
 </html>
